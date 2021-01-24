@@ -42,7 +42,7 @@ async fn main() -> Result<(), anyhow::Error> {
         });
 
     warp::serve(upload.or(fetch))
-        .run(([127, 0, 0, 1], 3031))
+        .run(([0, 0, 0, 0], 3031))
         .await;
 
     Ok(())
