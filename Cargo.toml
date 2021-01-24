@@ -1,0 +1,22 @@
+[package]
+name = "rustyblobjectstore"
+version = "0.1.0"
+authors = ["David Wilemski <david@wilemski.org>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+env_logger = "0.8"
+hex = "0.4"
+http = "0.2"
+log = "0.4"
+sha2 = "0.9"
+# needs tokio 1.0 compat, can remove git / ref after
+# https://github.com/launchbadge/sqlx/pull/983 is released.
+sqlx = { features = ["runtime-tokio-rustls", "sqlite"], git = "https://github.com/launchbadge/sqlx", ref = "df393128" }
+# tokio = { version = "1.0", features = ["full"] }
+tokio = { version = "1.1", features = ["rt-multi-thread", "macros"] }
+warp = "0.3"
